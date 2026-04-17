@@ -37,6 +37,7 @@ body {
     height: 100%;
     overflow: hidden;
     z-index: 0;
+    pointer-events: none;
 }
 
 .blob {
@@ -72,9 +73,10 @@ body {
 
 /* Glassmorphism Container */
 .container {
-    width: 100%;
+    width: 92%;
     max-width: 480px;
-    padding: 40px;
+    margin: 0 auto;
+    padding: 30px;
     border-radius: 24px;
     background: var(--card-bg);
     backdrop-filter: blur(24px);
@@ -84,6 +86,7 @@ body {
     z-index: 10;
     transform: translateY(0);
     transition: var(--transition);
+    pointer-events: auto;
 }
 
 .container:hover {
@@ -141,6 +144,8 @@ body {
     font-size: 1rem;
     font-family: inherit;
     transition: var(--transition);
+    user-select: text;
+    -webkit-user-select: text;
 }
 
 .input-container input:focus {
