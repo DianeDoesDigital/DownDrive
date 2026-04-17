@@ -339,13 +339,11 @@ body {
 }
 
 .footer-brand {
-    position: absolute;
-    bottom: 24px;
+    margin-top: 24px;
     width: 100%;
     text-align: center;
-    font-size: 0.8rem;
+    font-size: 0.75rem;
     letter-spacing: 3px;
     color: var(--text-dim);
     font-weight: 800;
-    z-index: 10;
 }

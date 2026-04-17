@@ -55,7 +55,11 @@ document.addEventListener('DOMContentLoaded', () => {
         } catch (error) {
             statusTxt.textContent = 'Status: FAILED';
             statusTxt.style.color = '#ef4444';
-            alert('Error: ' + error.message);
+            let formattedErr = error.message;
+            if (formattedErr.length > 200) {
+                formattedErr = formattedErr.substring(0, 150) + "... [Error truncated. It looks like this specific video might be geo-restricted or blocked in this region.]";
+            }
+            alert('Error: ' + formattedErr);
             resetBtn();
         }
     });
