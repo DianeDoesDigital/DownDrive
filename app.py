@@ -35,20 +35,22 @@ def index():
 def download():
     data = request.json
     url = data.get('url')
-    # Use best combined format for cloud fast DL
     format_option = data.get('format', 'video')
 
     if not url:
         return jsonify({'error': 'URL is required'}), 400
 
     try:
+        # Intelligently resolve the format depending on if user wants Audio or Video
+        target_format = 'bestaudio/best' if format_option == 'audio' else 'best[ext=mp4]/best/b'
+
         ydl_opts = {
             'outtmpl': os.path.join(DOWNLOAD_FOLDER, '%(title)s.%(ext)s'),
             'progress_hooks': [my_hook],
             'nocheckcertificate': True,
             'quiet': True,
             'no_warnings': True,
-            'format': 'best',
+            'format': target_format,
             # Bypass YouTube's aggressive datacenter bot-checks by disguising as a mobile app
             'extractor_args': {'youtube': {'player_client': ['android', 'ios']}},
             'geo_bypass': True
