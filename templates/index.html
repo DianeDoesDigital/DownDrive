@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DownDrive</title>
+    <!-- Modern premium font -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <!-- Dynamic animated backgrounds -->
+    <div class="blob-wrapper">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+    </div>
+    
+    <div class="container glass-card">
+        <header class="card-header">
+            <h1 class="brand"><span class="accent">Down</span>Drive<span class="accent">.</span></h1>
+            <p class="subtitle">High-Fidelity Media Extraction</p>
+        </header>
+        
+        <main>
+            <div class="input-container">
+                <i class="fa-solid fa-link icon"></i>
+                <input type="text" id="url" placeholder="Paste YouTube link here..." autocomplete="off">
+            </div>
+            
+            <div class="format-selection">
+                <label class="radio-tab">
+                    <input type="radio" name="format" value="video" checked>
+                    <div class="tab-content">
+                        <i class="fa-solid fa-video"></i>
+                        <span>Video (MP4)</span>
+                    </div>
+                </label>
+                <label class="radio-tab">
+                    <input type="radio" name="format" value="audio">
+                    <div class="tab-content">
+                        <i class="fa-solid fa-music"></i>
+                        <span>Audio (MP3)</span>
+                    </div>
+                </label>
+            </div>
+            
+            <button id="download-btn" class="action-btn">
+                <span class="btn-text">Extract Source</span>
+                <i class="fa-solid fa-arrow-down"></i>
+            </button>
+            
+            <div id="status-panel" class="status-panel hidden">
+                <div class="media-title">
+                    <i class="fa-brands fa-youtube"></i>
+                    <h3 id="video-title" class="truncate">Analyzing media...</h3>
+                </div>
+                
+                <div class="tracker">
+                    <div class="progress-bar-bg">
+                        <div id="progress-bar" class="progress-bar-fill"></div>
+                    </div>
+                    
+                    <div class="stats-row">
+                        <div class="stat"><i class="fa-solid fa-percent"></i> <span id="percent">0%</span></div>
+                        <div class="stat"><i class="fa-solid fa-gauge-high"></i> <span id="speed">--</span></div>
+                        <div class="stat"><i class="fa-solid fa-clock"></i> <span id="eta">--:--</span></div>
+                    </div>
+                    
+                    <div class="status-msg" id="status-text">Starting injection protocol...</div>
+                </div>
+            </div>
+        </main>
+    </div>
+    
+    <div class="footer-brand">POWERED BY <span class="accent">DRGM.DEV</span></div>
+
+    <script src="/static/script.js"></script>
+</body>
+</html>
