@@ -21,11 +21,13 @@ body {
     background-color: var(--bg-dark);
     color: var(--text-primary);
     min-height: 100vh;
+    min-height: 100dvh; /* Dynamic viewport height for mobile */
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     position: relative;
-    overflow: hidden;
+    overflow-x: hidden;
 }
 
 /* Dynamic Animated Blobs */
@@ -75,7 +77,7 @@ body {
 .container {
     width: 92%;
     max-width: 480px;
-    margin: 0 auto;
+    margin: auto;
     padding: 30px;
     border-radius: 24px;
     background: var(--card-bg);
