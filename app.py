@@ -54,6 +54,10 @@ def download():
             'geo_bypass': True
         }
 
+        # If a cookies file is present, inject it to completely obliterate YouTube bot-blocks!
+        if os.path.exists('cookies.txt'):
+            ydl_opts['cookiefile'] = 'cookies.txt'
+
         with yt_dlp.YoutubeDL(ydl_opts) as ydl:
             info = ydl.extract_info(url, download=False)
             video_id = info.get('id', 'unknown')
