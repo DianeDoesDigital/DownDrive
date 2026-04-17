@@ -48,7 +48,9 @@ def download():
             'nocheckcertificate': True,
             'quiet': True,
             'no_warnings': True,
-            'format': 'best'
+            'format': 'best',
+            # Bypass YouTube's aggressive datacenter bot-checks by disguising as a mobile app
+            'extractor_args': {'youtube': {'player_client': ['android', 'ios']}}
         }
 
         with yt_dlp.YoutubeDL(ydl_opts) as ydl:
